@@ -192,6 +192,28 @@ svg:hover .eixo {
   text-align: left;
 }
 
+.plotar {
+  position: absolute;
+  width: 20vh;
+  top: 15vh;
+  text-align: center;
+  background-color: #d9d9d9;
+  left: 103vh;
+}
+
+#informacoes {
+	border: 3px solid var(--gray-400);
+	padding: 30px 20px 20px 20px;
+	border-radius: 20px;
+	position: absolute;
+  width: 100vh;
+  text-align: center;
+  display: inline;
+  flex-direction: column;
+  left: 65vh;
+  top: 25vh;
+}
+
 #escolha {
   position: absolute;
   top: 50%;
@@ -229,7 +251,6 @@ button, a {
 label {
   font-weight: 500;
   color: var(--gray-400);
-  
 }
 
 input {
@@ -239,7 +260,6 @@ input {
   height: 30px;
   width: 100%;
   color: var(--gray-400);	
- 
 }
 
 .input-group {
@@ -251,9 +271,14 @@ input {
 
 }
 
-.container ,.prensa {
-  top: 15vh;
+.input, #btn-calcula {
+  margin-top: 3vh;
 }
+
+.container ,.prensa {
+  top: 8vh;
+  display: flex;
+ }
 
 
 
@@ -306,7 +331,6 @@ label {
 	background-color: var(--white);
 	padding-inline: 12px;
 	top: -30px;
-	
 }
 
 #bomba-controls {

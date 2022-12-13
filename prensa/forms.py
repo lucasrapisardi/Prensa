@@ -19,7 +19,48 @@ class TensCis_Forms(forms.Form):
         d = self.cleaned_data.get("dRebites")
 
         #calculo da tensão de cisalhamento sobre o(s) rebite(s)
-        result_cis = round(Q/(n*N*(math.pi/4)*math.pow(d, 2)))
+        result_cis = Q/(n*N*(math.pi/4)*math.pow(d, 2))
         
         #exibe o resultado do cálculo em MPa
         return result_cis
+
+class MomFletor_Forms(forms.Form):
+    cargaExerc = forms.IntegerField(label="Intensidade da força que origina o Momento Fletor [N]: ")
+    distRef = forms.IntegerField(label="Distância entre o ponto de referência e o ponto onde a força é aplicada[m]: ")
+    
+    def momFletor(self):
+        print(f"\nFunção selecionada: Cálculo de Momento Fletor.")
+
+        F = self.cleaned_data.get("cargaExerc")
+        l = self.cleaned_data.get("distRef")
+
+        resMomento = F*l
+
+        return resMomento
+
+class MaxFlexao_Forms(forms.Form):
+    mom_fletor = forms.IntegerField(label=f"Momento fletor sobre a peça [Nm]: ")
+    raio_rebite = forms.FloatField(label=f"Raio do rebite [m]: ")
+    momento_inercia = forms.IntegerField(label="Momento de inércia da geometria [m⁴]: ")
+
+    def maxFlexao(self):
+        print(f"\nFunção selecionada: Tensão Máxima de Flexão.")
+
+        M = self.cleaned_data.get("mom_fletor")
+        y = self.cleaned_data.get("raio_rebite")
+        I = self.cleaned_data.get("momento_inercia")
+
+        flexao = M*y/I*(1e-6)
+
+        return flexao
+
+class TensNormal_Forms(forms.Form):
+    area = forms.IntegerField(label=f"Área da peça [m²]: ")
+    forca = forms.IntegerField(label=f"Força a ser aplicada [N]: ")
+
+    def tensNormal(self):
+        A = self.cleaned_data.get("area")
+        N = self.cleaned_data.get("forca")
+
+        E = N/A
+        return E

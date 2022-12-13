@@ -571,11 +571,11 @@
     </div>
     <div id="informacoes">
         {% block content %}
-        <p>Carga exercida sobre a peça [N]: {{ form.cargaExerc.value }}</p>
+        <p>Carga exercida sobre a peça: {{ form.cargaExerc.value }}N</p>
         <p>Número de rebites: {{ form.nRebites.value }}</p>
         <p>Pontos dos rebites a cisalhar: {{ form.pRebites.value }}</p>
-        <p>Diâmetro do(s) rebite(s) [mm]: {{ form.dRebites.value }}</p>
-        <p>Tensão de cisalhamento sobre os rebites: {{ form.tensaoCis }} MPa</p>
+        <p>Diâmetro do(s) rebite(s): {{ form.dRebites.value }}mm</p>
+        <p>Tensão de cisalhamento sobre os rebites: {{ form.tensaoCis }}MPa</p>
         {% endblock %}
     </div>
 </div>

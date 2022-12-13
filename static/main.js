@@ -1,4 +1,3 @@
-import { Fluidos } from './models/Fluidos.js';
 
 
 const escolhaContainer = document.querySelector("#escolha");
@@ -35,10 +34,7 @@ function toggleItens(listOfObjects) {
 btnVoltarAoMenu.addEventListener("click", () => toggleItens([prensaControls, prensaImage, escolhaContainer, btnVoltarAoMenu]))
 btnPrensa.addEventListener("click", () => toggleItens([prensaControls, prensaImage, escolhaContainer, btnVoltarAoMenu]));
 
-function sayHello(){
-	alert('Hello');
-}
-btnCalcula.addEventListener('click', () => sayHello());
+btnCalcula.addEventListener('click', () => alert("Oi"));
 
 inputSlider.oninput = (() => {
 	let value = inputSlider.value;

@@ -251,7 +251,6 @@ button, a {
 label {
   font-weight: 500;
   color: var(--gray-400);
-  
 }
 
 input {
@@ -261,7 +260,6 @@ input {
   height: 30px;
   width: 100%;
   color: var(--gray-400);	
- 
 }
 
 .input-group {
@@ -271,6 +269,10 @@ input {
 	border-radius: 20px;
 	position: relative;
 
+}
+
+.input, #btn-calcula {
+  margin-top: 3vh;
 }
 
 .container ,.prensa {
