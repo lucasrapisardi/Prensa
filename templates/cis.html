@@ -1,8 +1,6 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,9 +19,9 @@
 			</div>
 			<div class="input-group">
 				<h3 class="title-form">Dados de Entrada</h3>
-				<form action ="{% url 'minha_consulta' %}" method="post">
+				<form action ="{% url 'tensCis' %}" method="post">
 					{% csrf_token %}
-					<label for="cargaExerc">Carga exercida sobre a peça [N]: </label>
+					<!-- <label for="cargaExerc">Carga exercida sobre a peça [N]: </label>
 					<input id="cargaExerc" type="number" name="cargaExerc" value="{{ current_carga }}">
 					<label for="nRebites">Número de rebites:  </label>
 					<input id="nRebites" type="number" name="nRebites" value="{{ current_carga }}">
@@ -31,11 +29,18 @@
 					<input id="pRebites" type="number" name="pRebites" value="{{ current_carga }}">
 					<label for="dRebites">Diâmetro do(s) rebite(s) [mm]: </label>
 					<input id="dRebites" type="number" name="dRebites" value="{{ current_carga }}">
-					<input type="submit" value="Calcular" id="btn-calcula"> 
+					<input type="submit" value="Calcular" id="btn-calcula">  -->
+					{% for field in form.visible_fields %}
+					<div>
+						<label for="{{field.id_for_label}}">{{field.label}}</label>
+						{{field}}
+					</div>
+					{% endfor %}
+					<input type="submit" value="Calcular" id="btn-calcula">
 				</form>
 			</div>
 		</div>
-
+{% block content %}
 		<div class="prensa">
 			<svg id="prensa" width="250" height="734" viewBox="0 0 250 734" fill="none"
 				xmlns="http://www.w3.org/2000/svg">
@@ -598,8 +603,10 @@
 					</linearGradient>
 				</defs>
 			</svg>
+			{% endblock %}
 		</div>
 	</div>
+
 	<script type="module" src="{% static 'main.js' %}"></script>
 </body>
 

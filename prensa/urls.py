@@ -9,4 +9,6 @@ urlpatterns = [
     path('fletor.html', views.fletor, name='fletor'),
     path('flex.html', views.flex, name='flex'),
     path('normal.html', views.normal, name='normal'),
+    path('cis.html', views.cis, name='cis'),
+    path('tensCis', views.tensCis, name='tensCis'),
 ]
