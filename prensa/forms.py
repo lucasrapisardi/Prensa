@@ -6,10 +6,10 @@ import planesections as ps
 
 
 class TensCis_Forms(forms.Form):
-    cargaExerc = forms.IntegerField(label="Carga exercida sobre a peça [N]: ")
-    nRebites = forms.IntegerField(label="Número de rebites: ")
-    pRebites = forms.IntegerField(label="Pontos do rebite a cisalhar: ")
-    dRebites = forms.IntegerField(label="Diâmetro do(s) rebite(s) [mm]: ")
+    cargaExerc = forms.FloatField(label="Carga exercida sobre a peça [N]: ")
+    nRebites = forms.FloatField(label="Número de rebites: ")
+    pRebites = forms.FloatField(label="Pontos do rebite a cisalhar: ")
+    dRebites = forms.FloatField(label="Diâmetro do(s) rebite(s) [mm]: ")
     
     def tensaoCis(self):
         print(f"Função selecionada: Tensão de cisalhamento sobre o(s) rebite(s).\n")
@@ -25,8 +25,8 @@ class TensCis_Forms(forms.Form):
         return result_cis
 
 class MomFletor_Forms(forms.Form):
-    cargaExerc = forms.IntegerField(label="Intensidade da força que origina o Momento Fletor [N]: ")
-    distRef = forms.IntegerField(label="Distância entre o ponto de referência e o ponto onde a força é aplicada[m]: ")
+    cargaExerc = forms.FloatField(label="Intensidade da força que origina o Momento Fletor [N]: ")
+    distRef = forms.FloatField(label="Distância entre o ponto de referência e o ponto onde a força é aplicada[m]: ")
     
     def momFletor(self):
         print(f"\nFunção selecionada: Cálculo de Momento Fletor.")
@@ -39,9 +39,9 @@ class MomFletor_Forms(forms.Form):
         return resMomento
 
 class MaxFlexao_Forms(forms.Form):
-    mom_fletor = forms.IntegerField(label=f"Momento fletor sobre a peça [Nm]: ")
+    mom_fletor = forms.FloatField(label=f"Momento fletor sobre a peça [Nm]: ")
     raio_rebite = forms.FloatField(label=f"Raio do rebite [m]: ")
-    momento_inercia = forms.IntegerField(label="Momento de inércia da geometria [m⁴]: ")
+    momento_inercia = forms.FloatField(label="Momento de inércia da geometria [m⁴]: ")
 
     def maxFlexao(self):
         print(f"\nFunção selecionada: Tensão Máxima de Flexão.")
@@ -55,8 +55,8 @@ class MaxFlexao_Forms(forms.Form):
         return flexao
 
 class TensNormal_Forms(forms.Form):
-    area = forms.IntegerField(label=f"Área da peça [m²]: ")
-    forca = forms.IntegerField(label=f"Força a ser aplicada [N]: ")
+    area = forms.FloatField(label=f"Área da peça [m²]: ")
+    forca = forms.FloatField(label=f"Força a ser aplicada [N]: ")
 
     def tensNormal(self):
         A = self.cleaned_data.get("area")
