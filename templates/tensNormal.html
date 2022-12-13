@@ -573,8 +573,8 @@
     <div id="informacoes">
         {% block content %}
         <p>Área da peça: {{ form.area.value }}m²</p>
-        <p>Número de rebites: {{ form.forca.value }}N</p>
-        <p>Tensão de cisalhamento sobre os rebites: {{ form.tensNormal }}MPa</p>
+        <p>Força aplicada: {{ form.forca.value }}N</p>
+        <h3><b>Tensão aplica por área: {{ form.tensNormal }}MPa</b></h3>
         {% endblock %}
     </div>
 </div>
